@@ -7,12 +7,11 @@ const MessageWindow = ({ room }) => {
 
   console.log("ChatMessages", chatMessages);
 
-  useEffect(() => {
-    room?.onMessage("message", (message) => {
-      console.log(message);
-      setChatMessages([...chatMessages, message]);
-    });
-  }, [room, chatMessages]);
+
+  room?.onMessage("message", (message) => {
+    console.log(message);
+    setChatMessages([...chatMessages, message]);
+  });
 
   const renderMessages = () =>
     chatMessages.map((message, i) => (
